@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Casa Cavour · Grazie per la tua visita</title>
+<meta name="description" content="Grazie per aver soggiornato a Casa Cavour, Bertinoro. Lasciaci una recensione su Google e scopri i nostri consigli sul territorio.">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #a0782a;
+    --gold-light: #c49a3c;
+    --gold-pale: #f5edd6;
+    --dark: #1a1410;
+    --mid: #5a4a30;
+    --light: #f9f6f0;
+    --white: #ffffff;
+    --border: rgba(160,120,42,0.25);
+    --radius: 12px;
+    --shadow: 0 2px 16px rgba(160,120,42,0.10);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--light);
+    color: var(--dark);
+    min-height: 100vh;
+    padding-bottom: 84px; /* spazio per la barra CTA fissa in basso */
+  }
+
+  /* CONTENITORE — sempre singola colonna, pensato per uno schermo verticale */
+  .page {
+    max-width: 460px;
+    margin: 0 auto;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--light);
+    text-align: center;
+    padding: 2rem 1.5rem 1.25rem;
+  }
+
+  .avatar {
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    margin: 0 auto 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    overflow: hidden;
+  }
+
+  .avatar img {
+    width: 88%;
+    height: 88%;
+    object-fit: contain;
+  }
+
+  header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem;
+    font-weight: 500;
+    color: var(--dark);
+    letter-spacing: 0.04em;
+    margin-bottom: 0.2rem;
+  }
+
+  header p.tagline {
+    font-size: 0.78rem;
+    color: var(--gold);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  /* HERO — CTA RECENSIONE, il vero motivo per cui questa pagina esiste */
+  .hero-review {
+    margin: 0 1.25rem 1.5rem;
+    background: linear-gradient(160deg, var(--gold-pale) 0%, var(--white) 70%);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    padding: 1.75rem 1.5rem;
+    text-align: center;
+  }
+
+  .hero-stars {
+    font-size: 1.3rem;
+    letter-spacing: 0.15em;
+    color: var(--gold-light);
+    margin-bottom: 0.6rem;
+  }
+
+  .hero-review h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--dark);
+    margin-bottom: 0.6rem;
+    line-height: 1.25;
+  }
+
+  .hero-review p {
+    font-size: 0.88rem;
+    color: var(--mid);
+    line-height: 1.6;
+    margin-bottom: 1.4rem;
+  }
+
+  .google-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    width: 100%;
+    padding: 0.95rem 1rem;
+    background: var(--white);
+    border: 1.5px solid var(--gold);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+    box-shadow: 0 3px 14px rgba(160,120,42,0.18);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+
+  .google-cta:active {
+    transform: scale(0.98);
+    box-shadow: 0 1px 6px rgba(160,120,42,0.18);
+  }
+
+  .google-cta svg { width: 22px; height: 22px; flex-shrink: 0; }
+
+  .hero-sub {
+    margin-top: 0.9rem;
+    font-size: 0.72rem;
+    color: #9a8a6a;
+  }
+
+  /* SECTIONS */
+  .container {
+    padding: 0 1.25rem 2rem;
+  }
+
+  .section {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    margin-bottom: 1.1rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 0.75rem 1.1rem;
+    border-bottom: 1px solid var(--border);
+    background: rgba(160,120,42,0.04);
+  }
+
+  /* LINK BUTTONS */
+  .links-list {
+    padding: 0.7rem 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  .link-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.7rem 0.9rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--dark);
+    font-size: 0.86rem;
+    font-weight: 400;
+    transition: background 0.18s, border-color 0.18s;
+    background: var(--white);
+  }
+
+  .link-btn:active { background: var(--gold-pale); border-color: var(--gold); }
+
+  .link-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    background: var(--gold-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 15px;
+  }
+
+  .link-label { flex: 1; font-weight: 500; }
+
+  .link-sublabel {
+    font-size: 0.75rem;
+    color: #888;
+    display: block;
+    font-weight: 300;
+    margin-top: 1px;
+  }
+
+  .link-arrow { color: var(--gold); font-size: 14px; opacity: 0.7; }
+
+  /* WHATSAPP */
+  .whatsapp-widget {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 1rem;
+    text-decoration: none;
+    background: #25D366;
+  }
+
+  .whatsapp-widget svg { width: 24px; height: 24px; fill: white; }
+  .whatsapp-widget span { font-size: 0.85rem; font-weight: 500; color: white; }
+
+  /* METEO */
+  .meteo-body { padding: 1rem; }
+  .meteo-main { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+  .meteo-icon { font-size: 2.3rem; line-height: 1; }
+  .meteo-temp { font-family: 'Cormorant Garamond', serif; font-size: 2.1rem; font-weight: 500; color: var(--dark); line-height: 1; }
+  .meteo-desc { font-size: 0.8rem; color: #777; margin-top: 2px; }
+  .meteo-details { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; border-top: 1px solid var(--border); padding-top: 0.75rem; }
+  .meteo-detail { font-size: 0.76rem; color: #666; display: flex; align-items: center; gap: 4px; }
+  .meteo-detail strong { color: var(--dark); font-weight: 500; }
+  .meteo-location { font-size: 0.73rem; color: var(--gold); margin-bottom: 0.5rem; letter-spacing: 0.05em; }
+  .meteo-loading { padding: 1.5rem 1rem; text-align: center; color: #999; font-size: 0.8rem; }
+
+  /* TURISMO */
+  .turismo-body { padding: 1rem; }
+  .turismo-body p { font-size: 0.8rem; color: #555; line-height: 1.6; margin-bottom: 0.75rem; }
+  .turismo-link {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 0.78rem; color: var(--gold); text-decoration: none;
+    border: 1px solid var(--border); border-radius: 6px; padding: 0.45rem 0.7rem;
+    margin-top: 0.4rem;
+  }
+
+  /* MAPPA */
+  .map-container { width: 100%; height: 170px; background: #e8e0d4; overflow: hidden; }
+  .map-container iframe { width: 100%; height: 100%; border: none; }
+  .map-label { padding: 0.6rem 1rem; font-size: 0.76rem; color: #666; border-top: 1px solid var(--border); display: flex; align-items: center; gap: 5px; }
+  .map-link { margin-left: auto; font-size: 0.76rem; color: var(--gold); text-decoration: none; }
+
+  /* CTA FISSA IN BASSO — la recensione resta sempre a un tap di distanza */
+  .sticky-cta {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    padding: 0.65rem 1rem calc(0.65rem + env(safe-area-inset-bottom));
+    box-shadow: 0 -3px 16px rgba(26,20,16,0.10);
+    z-index: 20;
+  }
+
+  .sticky-cta a {
+    display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+    background: var(--gold);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.86rem;
+    padding: 0.7rem;
+    border-radius: 9px;
+    max-width: 460px;
+    margin: 0 auto;
+  }
+
+  .sticky-cta svg { width: 17px; height: 17px; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 1.25rem;
+    font-size: 0.72rem;
+    color: #aaa;
+    border-top: 1px solid var(--border);
+    background: var(--white);
+  }
+
+  footer a { color: var(--gold); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <header>
+    <div class="avatar">
+      <img src="Logo.png" alt="Logo Casa Cavour">
+    </div>
+    <h1>Casa Cavour</h1>
+    <p class="tagline">Bertinoro · Emilia-Romagna</p>
+  </header>
+
+  <!-- HERO: CTA RECENSIONE GOOGLE, obiettivo primario della pagina -->
+  <div class="hero-review">
+    <div class="hero-stars">★★★★★</div>
+    <h2>Grazie per essere<br>stato nostro ospite</h2>
+    <p>Se ti sei trovato bene a Casa Cavour, un tuo pensiero su Google ci aiuterebbe moltissimo: aiuta chi sta cercando dove soggiornare a Bertinoro a trovarci.</p>
+    <a class="google-cta" href="https://g.page/r/CX29I9RlMT27EBM/review" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#4285F4" d="M23.52 12.27c0-.85-.08-1.67-.22-2.45H12v4.64h6.47c-.28 1.5-1.13 2.77-2.4 3.62v3h3.88c2.27-2.09 3.57-5.17 3.57-8.81z"/>
+        <path fill="#34A853" d="M12 24c3.24 0 5.96-1.07 7.95-2.92l-3.88-3c-1.08.72-2.45 1.15-4.07 1.15-3.13 0-5.78-2.11-6.73-4.96H1.26v3.11C3.24 21.3 7.28 24 12 24z"/>
+        <path fill="#FBBC05" d="M5.27 14.27c-.24-.72-.38-1.48-.38-2.27s.14-1.55.38-2.27V6.62H1.26A11.97 11.97 0 0 0 0 12c0 1.93.46 3.76 1.26 5.38l4.01-3.11z"/>
+        <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.44-3.44C17.95 1.19 15.24 0 12 0 7.28 0 3.24 2.7 1.26 6.62l4.01 3.11C6.22 6.87 8.87 4.75 12 4.75z"/>
+      </svg>
+      Lascia una recensione su Google
+    </a>
+    <div class="hero-sub">Bastano 30 secondi, grazie di cuore.</div>
+  </div>
+
+  <div class="container">
+
+    <!-- CONTATTI DIRETTI -->
+    <div class="section">
+      <div class="section-title">Contatti diretti</div>
+      <a class="whatsapp-widget" href="https://wa.me/31613078576?text=Ciao%2C%20sono%20stato%20ospite%20a%20Casa%20Cavour!" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.821.487 3.53 1.338 5.004L2.01 22l5.114-1.341A9.967 9.967 0 0 0 12 22c5.522 0 10-4.478 10-10S17.522 2 12 2zm0 18a7.963 7.963 0 0 1-4.061-1.113l-.292-.173-3.033.795.811-2.96-.19-.305A7.96 7.96 0 0 1 4 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/>
+        </svg>
+        <span>Scrivimi su WhatsApp</span>
+      </a>
+    </div>
+
+    <!-- SEGUICI -->
+    <div class="section">
+      <div class="section-title">Seguici</div>
+      <div class="links-list">
+        <a class="link-btn" href="https://www.instagram.com/bnb_bertinoro/" target="_blank" rel="noopener">
+          <div class="link-icon">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="20" height="20" rx="5" stroke="#a0782a" stroke-width="1.8"/>
+              <circle cx="12" cy="12" r="4.5" stroke="#a0782a" stroke-width="1.8"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="#a0782a"/>
+            </svg>
+          </div>
+          <span class="link-label">Instagram
+            <span class="link-sublabel">@bnb_bertinoro</span>
+          </span>
+          <span class="link-arrow">›</span>
+        </a>
+        <a class="link-btn" href="https://www.romagna-affitti-brevi.it" target="_blank" rel="noopener">
+          <div class="link-icon">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#a0782a" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </div>
+          <span class="link-label">Romagna Affitti Brevi
+            <span class="link-sublabel">Altri appartamenti in zona</span>
+          </span>
+          <span class="link-arrow">›</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- METEO -->
+    <div class="section">
+      <div class="section-title">Meteo · Bertinoro</div>
+      <div class="meteo-body" id="meteo-body">
+        <div class="meteo-loading" id="meteo-loading">Caricamento meteo...</div>
+        <div id="meteo-content" style="display:none;">
+          <div class="meteo-location" id="meteo-loc">Bertinoro, FC · <span id="meteo-date"></span></div>
+          <div class="meteo-main">
+            <div class="meteo-icon" id="meteo-icon">–</div>
+            <div>
+              <div class="meteo-temp" id="meteo-temp">–</div>
+              <div class="meteo-desc" id="meteo-cond">–</div>
+            </div>
+          </div>
+          <div class="meteo-details">
+            <div class="meteo-detail">💧 <strong id="meteo-humidity">–</strong>&nbsp;umidità</div>
+            <div class="meteo-detail">💨 <strong id="meteo-wind">–</strong>&nbsp;km/h</div>
+            <div class="meteo-detail">↑ <strong id="meteo-max">–</strong>&nbsp;max</div>
+            <div class="meteo-detail">↓ <strong id="meteo-min">–</strong>&nbsp;min</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TURISMO -->
+    <div class="section">
+      <div class="section-title">Turismo · Emilia-Romagna</div>
+      <div class="turismo-body">
+        <p>Scopri i borghi medievali, le terme, la Via Emilia e la Riviera Adriatica. Bertinoro è il cuore della Romagna del vino e dell'ospitalità.</p>
+        <a class="turismo-link" href="https://www.emiliaromagnaturismo.it/it" target="_blank" rel="noopener">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Portale Turismo Regionale
+        </a>
+        <br>
+        <a class="turismo-link" href="https://www.visitbertinoro.it" target="_blank" rel="noopener">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Visita Bertinoro
+        </a>
+      </div>
+    </div>
+
+    <!-- MAPPA -->
+    <div class="section">
+      <div class="section-title">Dove siamo</div>
+      <div class="map-container">
+        <iframe
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://maps.google.com/maps?q=44.15045,12.13692&t=&z=18&ie=UTF8&iwloc=&output=embed"
+          title="Posizione Casa Cavour">
+        </iframe>
+      </div>
+      <div class="map-label">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#a0782a" stroke-width="2" style="flex-shrink:0"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Via Cavour 44 · Bertinoro (FC)
+        <a class="map-link" href="https://www.google.com/maps/place/Casa+Cavour/@44.1503848,12.1375053,19.25z/data=!4m6!3m5!1s0x132ca7c6fc57babf:0xbb3d3165d423bd7d!8m2!3d44.15045!4d12.13692!16s%2Fg%2F11yf_83cpm" target="_blank" rel="noopener">Apri Maps ›</a>
+      </div>
+    </div>
+
+    <!-- I NOSTRI CONSIGLI -->
+    <div class="section">
+      <div class="section-title">I nostri consigli</div>
+      <div class="links-list">
+
+        <a class="link-btn" href="https://www.instagram.com/osteriabartolini/" target="_blank" rel="noopener">
+          <div class="link-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#a0782a" stroke-width="1.8"/><circle cx="12" cy="12" r="4.5" stroke="#a0782a" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="#a0782a"/></svg></div>
+          <span class="link-label">Osteria Bartolini<span class="link-sublabel">@osteriabartolini</span></span>
+          <span class="link-arrow">›</span>
+        </a>
+
+        <a class="link-btn" href="https://www.instagram.com/scamporella/" target="_blank" rel="noopener">
+          <div class="link-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#a0782a" stroke-width="1.8"/><circle cx="12" cy="12" r="4.5" stroke="#a0782a" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="#a0782a"/></svg></div>
+          <span class="link-label">Scamporella<span class="link-sublabel">@scamporella</span></span>
+          <span class="link-arrow">›</span>
+        </a>
+
+        <a class="link-btn" href="https://www.instagram.com/poderebaratta/" target="_blank" rel="noopener">
+          <div class="link-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#a0782a" stroke-width="1.8"/><circle cx="12" cy="12" r="4.5" stroke="#a0782a" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="#a0782a"/></svg></div>
+          <span class="link-label">Podere Baratta<span class="link-sublabel">@poderebaratta</span></span>
+          <span class="link-arrow">›</span>
+        </a>
+
+        <a class="link-btn" href="https://www.instagram.com/osteria_macioepepe/" target="_blank" rel="noopener">
+          <div class="link-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#a0782a" stroke-width="1.8"/><circle cx="12" cy="12" r="4.5" stroke="#a0782a" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="#a0782a"/></svg></div>
+          <span class="link-label">Osteria Macio e Pepe<span class="link-sublabel">@osteria_macioepepe</span></span>
+          <span class="link-arrow">›</span>
+        </a>
+
+        <a class="link-btn" href="https://www.instagram.com/agriturismogallorosso/" target="_blank" rel="noopener">
+          <div class="link-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#a0782a" stroke-width="1.8"/><circle cx="12" cy="12" r="4.5" stroke="#a0782a" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="#a0782a"/></svg></div>
+          <span class="link-label">Agriturismo Gallo Rosso<span class="link-sublabel">@agriturismogallorosso</span></span>
+          <span class="link-arrow">›</span>
+        </a>
+
+        <a class="link-btn" href="https://www.instagram.com/sughero_forlimpopoli/" target="_blank" rel="noopener">
+          <div class="link-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#a0782a" stroke-width="1.8"/><circle cx="12" cy="12" r="4.5" stroke="#a0782a" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="#a0782a"/></svg></div>
+          <span class="link-label">Sughero<span class="link-sublabel">@sughero_forlimpopoli</span></span>
+          <span class="link-arrow">›</span>
+        </a>
+
+        <a class="link-btn" href="https://www.instagram.com/oineta.milanomarittima/" target="_blank" rel="noopener">
+          <div class="link-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#a0782a" stroke-width="1.8"/><circle cx="12" cy="12" r="4.5" stroke="#a0782a" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="#a0782a"/></svg></div>
+          <span class="link-label">Oineta<span class="link-sublabel">@oineta.milanomarittima</span></span>
+          <span class="link-arrow">›</span>
+        </a>
+
+        <a class="link-btn" href="https://www.instagram.com/brinto.bertinoro/" target="_blank" rel="noopener">
+          <div class="link-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#a0782a" stroke-width="1.8"/><circle cx="12" cy="12" r="4.5" stroke="#a0782a" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="#a0782a"/></svg></div>
+          <span class="link-label">Brinto<span class="link-sublabel">@brinto.bertinoro</span></span>
+          <span class="link-arrow">›</span>
+        </a>
+
+        <a class="link-btn" href="https://www.instagram.com/brnvillage/" target="_blank" rel="noopener">
+          <div class="link-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#a0782a" stroke-width="1.8"/><circle cx="12" cy="12" r="4.5" stroke="#a0782a" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="#a0782a"/></svg></div>
+          <span class="link-label">BRN Village<span class="link-sublabel">@brnvillage</span></span>
+          <span class="link-arrow">›</span>
+        </a>
+
+        <a class="link-btn" href="https://www.instagram.com/brnrestaurant/" target="_blank" rel="noopener">
+          <div class="link-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#a0782a" stroke-width="1.8"/><circle cx="12" cy="12" r="4.5" stroke="#a0782a" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="#a0782a"/></svg></div>
+          <span class="link-label">BRN Restaurant<span class="link-sublabel">@brnrestaurant</span></span>
+          <span class="link-arrow">›</span>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- AMICI DI CASA CAVOUR -->
+    <div class="section">
+      <div class="section-title">Amici di Casa Cavour</div>
+      <div class="links-list">
+
+        <a class="link-btn" href="https://www.instagram.com/luceacollection_/" target="_blank" rel="noopener">
+          <div class="link-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#a0782a" stroke-width="1.8"/><circle cx="12" cy="12" r="4.5" stroke="#a0782a" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="#a0782a"/></svg></div>
+          <span class="link-label">Lucea Collection<span class="link-sublabel">@luceacollection_</span></span>
+          <span class="link-arrow">›</span>
+        </a>
+
+        <a class="link-btn" href="https://www.instagram.com/vanguard_immobiliare/" target="_blank" rel="noopener">
+          <div class="link-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#a0782a" stroke-width="1.8"/><circle cx="12" cy="12" r="4.5" stroke="#a0782a" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="#a0782a"/></svg></div>
+          <span class="link-label">Vanguard Immobiliare<span class="link-sublabel">@vanguard_immobiliare</span></span>
+          <span class="link-arrow">›</span>
+        </a>
+
+        <a class="link-btn" href="https://www.instagram.com/visitbertinoro/" target="_blank" rel="noopener">
+          <div class="link-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#a0782a" stroke-width="1.8"/><circle cx="12" cy="12" r="4.5" stroke="#a0782a" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="#a0782a"/></svg></div>
+          <span class="link-label">Visit Bertinoro<span class="link-sublabel">@visitbertinoro</span></span>
+          <span class="link-arrow">›</span>
+        </a>
+
+        <a class="link-btn" href="https://www.instagram.com/fattoriaparadiso/" target="_blank" rel="noopener">
+          <div class="link-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#a0782a" stroke-width="1.8"/><circle cx="12" cy="12" r="4.5" stroke="#a0782a" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="#a0782a"/></svg></div>
+          <span class="link-label">Fattoria Paradiso<span class="link-sublabel">@fattoriaparadiso</span></span>
+          <span class="link-arrow">›</span>
+        </a>
+
+        <a class="link-btn" href="https://www.instagram.com/michael_pretolani/" target="_blank" rel="noopener">
+          <div class="link-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#a0782a" stroke-width="1.8"/><circle cx="12" cy="12" r="4.5" stroke="#a0782a" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="#a0782a"/></svg></div>
+          <span class="link-label">Michael Pretolani<span class="link-sublabel">@michael_pretolani</span></span>
+          <span class="link-arrow">›</span>
+        </a>
+
+        <a class="link-btn" href="https://www.instagram.com/resellzone.cesena/" target="_blank" rel="noopener">
+          <div class="link-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#a0782a" stroke-width="1.8"/><circle cx="12" cy="12" r="4.5" stroke="#a0782a" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="#a0782a"/></svg></div>
+          <span class="link-label">Resell Zone Cesena<span class="link-sublabel">@resellzone.cesena</span></span>
+          <span class="link-arrow">›</span>
+        </a>
+
+        <a class="link-btn" href="https://www.instagram.com/museo_interreligioso/" target="_blank" rel="noopener">
+          <div class="link-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#a0782a" stroke-width="1.8"/><circle cx="12" cy="12" r="4.5" stroke="#a0782a" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="#a0782a"/></svg></div>
+          <span class="link-label">Museo Interreligioso<span class="link-sublabel">@museo_interreligioso</span></span>
+          <span class="link-arrow">›</span>
+        </a>
+
+        <a class="link-btn" href="https://www.instagram.com/casamadiebakery/" target="_blank" rel="noopener">
+          <div class="link-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#a0782a" stroke-width="1.8"/><circle cx="12" cy="12" r="4.5" stroke="#a0782a" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="#a0782a"/></svg></div>
+          <span class="link-label">Casa Madie Bakery<span class="link-sublabel">@casamadiebakery</span></span>
+          <span class="link-arrow">›</span>
+        </a>
+
+        <a class="link-btn" href="https://www.instagram.com/spotforli/" target="_blank" rel="noopener">
+          <div class="link-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#a0782a" stroke-width="1.8"/><circle cx="12" cy="12" r="4.5" stroke="#a0782a" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="#a0782a"/></svg></div>
+          <span class="link-label">Spot Forlì<span class="link-sublabel">@spotforli</span></span>
+          <span class="link-arrow">›</span>
+        </a>
+
+        <a class="link-btn" href="https://www.instagram.com/ceub_bertinoro/" target="_blank" rel="noopener">
+          <div class="link-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#a0782a" stroke-width="1.8"/><circle cx="12" cy="12" r="4.5" stroke="#a0782a" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="#a0782a"/></svg></div>
+          <span class="link-label">CEUB Bertinoro<span class="link-sublabel">@ceub_bertinoro</span></span>
+          <span class="link-arrow">›</span>
+        </a>
+
+        <a class="link-btn" href="https://www.instagram.com/aimbyvns/" target="_blank" rel="noopener">
+          <div class="link-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#a0782a" stroke-width="1.8"/><circle cx="12" cy="12" r="4.5" stroke="#a0782a" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="#a0782a"/></svg></div>
+          <span class="link-label">AI'm by VNS<span class="link-sublabel">@aimbyvns</span></span>
+          <span class="link-arrow">›</span>
+        </a>
+
+      </div>
+    </div>
+
+  </div><!-- /container -->
+
+  <footer>
+    <p>© 2026 Casa Cavour · Bertinoro · <a href="https://www.casa-cavour.com">casa-cavour.com</a></p>
+  </footer>
+
+</div><!-- /page -->
+
+<!-- CTA FISSA — la recensione resta raggiungibile scrollando ovunque -->
+<div class="sticky-cta">
+  <a href="https://g.page/r/CX29I9RlMT27EBM/review" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#4285F4" d="M23.52 12.27c0-.85-.08-1.67-.22-2.45H12v4.64h6.47c-.28 1.5-1.13 2.77-2.4 3.62v3h3.88c2.27-2.09 3.57-5.17 3.57-8.81z"/>
+      <path fill="#34A853" d="M12 24c3.24 0 5.96-1.07 7.95-2.92l-3.88-3c-1.08.72-2.45 1.15-4.07 1.15-3.13 0-5.78-2.11-6.73-4.96H1.26v3.11C3.24 21.3 7.28 24 12 24z"/>
+      <path fill="#FBBC05" d="M5.27 14.27c-.24-.72-.38-1.48-.38-2.27s.14-1.55.38-2.27V6.62H1.26A11.97 11.97 0 0 0 0 12c0 1.93.46 3.76 1.26 5.38l4.01-3.11z"/>
+      <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.44-3.44C17.95 1.19 15.24 0 12 0 7.28 0 3.24 2.7 1.26 6.62l4.01 3.11C6.22 6.87 8.87 4.75 12 4.75z"/>
+    </svg>
+    Lascia una recensione
+  </a>
+</div>
+
+<script>
+const WMO = {
+  0:'Cielo sereno',1:'Prevalentemente sereno',2:'Parzialmente nuvoloso',3:'Coperto',
+  45:'Nebbia',48:'Nebbia gelata',
+  51:'Pioggerella',53:'Pioggerella moderata',55:'Pioggerella intensa',
+  61:'Pioggia leggera',63:'Pioggia moderata',65:'Pioggia intensa',
+  71:'Neve leggera',73:'Neve moderata',75:'Neve intensa',
+  77:'Granelli di neve',80:'Rovesci leggeri',81:'Rovesci moderati',82:'Rovesci violenti',
+  85:'Rovesci nevosi',86:'Rovesci nevosi intensi',
+  95:'Temporale',96:'Temporale con grandine',99:'Temporale con grandine intensa'
+};
+
+const ICONS = {
+  0:'☀️',1:'🌤️',2:'⛅',3:'☁️',
+  45:'🌫️',48:'🌫️',
+  51:'🌦️',53:'🌦️',55:'🌧️',
+  61:'🌧️',63:'🌧️',65:'🌧️',
+  71:'🌨️',73:'🌨️',75:'❄️',77:'❄️',
+  80:'🌦️',81:'🌧️',82:'⛈️',
+  85:'🌨️',86:'🌨️',95:'⛈️',96:'⛈️',99:'⛈️'
+};
+
+async function loadMeteo() {
+  try {
+    const url = 'https://api.open-meteo.com/v1/forecast?latitude=44.1451&longitude=12.1277&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&daily=temperature_2m_max,temperature_2m_min&timezone=Europe/Rome&forecast_days=1';
+    const r = await fetch(url);
+    const d = await r.json();
+    const c = d.current;
+    const day = d.daily;
+    const code = c.weather_code;
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('it-IT', {weekday:'long', day:'numeric', month:'long'});
+
+    document.getElementById('meteo-date').textContent = dateStr;
+    document.getElementById('meteo-temp').textContent = Math.round(c.temperature_2m) + '°C';
+    document.getElementById('meteo-cond').textContent = WMO[code] || 'N/D';
+    document.getElementById('meteo-icon').textContent = ICONS[code] || '🌡️';
+    document.getElementById('meteo-humidity').textContent = Math.round(c.relative_humidity_2m) + '%';
+    document.getElementById('meteo-wind').textContent = Math.round(c.wind_speed_10m);
+    document.getElementById('meteo-max').textContent = Math.round(day.temperature_2m_max[0]) + '°C';
+    document.getElementById('meteo-min').textContent = Math.round(day.temperature_2m_min[0]) + '°C';
+
+    document.getElementById('meteo-loading').style.display = 'none';
+    document.getElementById('meteo-content').style.display = 'block';
+  } catch(e) {
+    document.getElementById('meteo-loading').textContent = 'Meteo non disponibile al momento.';
+  }
+}
+
+loadMeteo();
+</script>
+
+</body>
+</html>
