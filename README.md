@@ -1,51 +1,39 @@
-# benvenuti.casa-cavour.com
+# benvenuti.casa-cavour.com — aggiornamento rilevamento lingua
 
-Pagina statica per il tag NFC di Casa Cavour: CTA recensione Google in cima
-e sempre visibile, più meteo, mappa, contatti e consigli sul territorio.
-Nessun framework, nessuna build step, stesso schema di romagna-links.
+Questo pacchetto contiene SOLO gli aggiornamenti rispetto al repo già live:
+`index.html` (versione italiana, aggiornata) ed `en.html` (nuova, versione inglese).
+`favicon.svg` è invariato, incluso solo per completezza.
 
-## Prima del primo deploy
+**Non è incluso `logo.png`**: è già presente nel tuo repo live, questi file lo
+referenziano con lo stesso nome esatto (minuscolo) che hai già corretto tu.
 
-1. **Manca `Logo.png`**. Il file `index.html` lo referenzia (`<img src="Logo.png">`)
-   ma non è incluso in questo zip: non avendolo a disposizione non l'ho potuto
-   generare io. Copia lo stesso `Logo.png` già usato nel repo `romagna-links`
-   nella ROOT di questo repo, stesso nome esatto (case-sensitive).
+## Cosa fa
 
-2. **Verifica l'handle Instagram corretto in autonomia**: nella sezione "Amici
-   di Casa Cavour" ho scritto `@museo_interreligioso`, correggendo quello che
-   sembrava un refuso rispetto a "museo_inerreligioso" scritto in origine.
-   Non è stato confermato esplicitamente come gli altri tre handle corretti
-   in sessione. Controlla su Instagram che l'account esista con questo nome
-   prima di andare live.
+- **index.html** (italiano, pagina principale): al caricamento controlla la
+  lingua del telefono (`navigator.language`). Se non inizia per "it",
+  reindirizza automaticamente a `/en.html`. In fondo alla pagina c'è comunque
+  un link manuale "Read this page in English" per chi vuole passare a mano.
+- **en.html** (inglese): stessa pagina, stesso funzionamento (meteo, mappa,
+  WhatsApp, recensione Google, 21 profili Instagram), copy tradotta. In fondo
+  un link "Leggi questa pagina in italiano" per tornare indietro.
+- La scelta (automatica o manuale) viene ricordata con `localStorage`, così
+  chi ha già scelto una lingua non viene rimbalzato ogni volta che riapre la
+  pagina.
+- Nessun loop possibile: solo `index.html` fa redirect automatico, `en.html`
+  non reindirizza mai da sola, cambia lingua solo se l'utente clicca il link.
 
-3. Se cambi anche il numero WhatsApp o l'indirizzo, ricorda che sono hardcoded
-   nell'HTML (cerca `wa.me` e le coordinate della mappa).
+## Come aggiornare il repo
 
-## Deploy su Vercel
+Sostituisci `index.html` con quello incluso qui, aggiungi `en.html` come file
+nuovo nella root (stesso livello di `index.html`, `favicon.svg`, `logo.png`).
+Nessun'altra modifica necessaria, nessun cambio di configurazione Vercel.
 
-1. Crea un nuovo repo GitHub, carica il contenuto di questo zip nella root
-   (dopo aver aggiunto `Logo.png`, vedi sopra)
-2. Importa il repo su Vercel, nessun framework da selezionare (static),
-   nessun build command
-3. Aggiungi il dominio custom `benvenuti.casa-cavour.com` nelle impostazioni
-   del progetto Vercel
-4. Sul DNS del dominio `casa-cavour.com`, aggiungi il record CNAME che
-   Vercel indica per il sottodominio `benvenuti` (stessa procedura già
-   fatta per `links.casa-cavour.com`)
+## Da verificare dopo il deploy
 
-## Dopo il deploy
-
-- Apri `https://benvenuti.casa-cavour.com` da telefono e verifica:
-  - Il bottone recensione Google in alto e la barra fissa in basso funzionino
-    entrambi (portano a `g.page/r/CX29I9RlMT27EBM/review`)
-  - Il meteo si carichi (dipende da una chiamata a `open-meteo.com`, nessuna
-    chiave richiesta)
-  - Tutti i 21 link Instagram aprano il profilo giusto (controllo veloce a
-    campione, non serve aprirli tutti)
-- Solo a questo punto programma il tag NFC con l'URL finale.
-
-## File inclusi
-
-- `index.html` — la pagina, completa di CSS e JS inline
-- `favicon.svg` — stesso favicon già creato per gli altri siti Casa Cavour
-  (monogramma C, oro su crema)
+- Da un telefono con lingua italiana: apri il link del tag NFC, deve restare
+  su `index.html` (nessun redirect)
+- Cambia temporaneamente la lingua di sistema del telefono in inglese, riapri
+  il link: deve reindirizzare automaticamente su `/en.html`
+- Da `en.html`, controlla che meteo e data si carichino in inglese
+- Controlla che i due link "Read this page in English" / "Leggi in italiano"
+  funzionino in entrambe le direzioni
